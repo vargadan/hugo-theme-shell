@@ -4,6 +4,7 @@
 
     {{ $cd := printf "<span id='terminal'>cd %s</span>" .Site.Params.Terminal.workDir | safeHTML }}
     {{ $cat := printf "<span id=terminal>cat %s</span>" .Site.Params.Terminal.profile | safeHTML }}
+    {{ $cat2 := printf "<span id=terminal>cat %s</span>" .Site.Params.Terminal.contactFile | safeHTML }}
 
     {{ $description := "" }}
     {{ if eq (substr .Site.Params.Terminal.description -3 3) ".md" }}
@@ -28,28 +29,41 @@
             {{ $ac := index $val 0}}
             {{ $link := index $val 1}}
 
-            <!-- pass link (i.e. http, https) and mailto -->
             {{ $l := $.Site.GetPage $link }}
             {{ if $l }}
                 {{ $link = $l.Permalink}}
             {{ end }}
             
             {{ if eq (add $index 1) (len $.Site.Params.Tree.files) }}
-            {{ $leaf = printf "<span id='terminal'>%s└── <a href='%s'>%s</a></span>" $leaf $link $ac | safeHTML}}
+            {{ $leaf = printf "<span id='terminal'>%s└── %s</span>" $leaf $ac | safeHTML}}
             {{ else }}
-            {{ $leaf = printf "<span id='terminal'>%s├── <a href='%s'>%s</a></span><br>" $leaf $link $ac | safeHTML}}
+            {{ $leaf = printf "<span id='terminal'>%s├── %s</span><br>" $leaf $ac | safeHTML}}
             {{ end }}
         {{ end }}
+    {{ end }} 
+
+    {{ $contact := "" }}
+    {{ if eq (substr .Site.Params.Terminal.contact -3 3) ".md" }}
+        {{ $s := "" }}
+        {{ with .Site.GetPage .Site.Params.Terminal.contact }}
+            <!-- replace the first  p tag with a br tag  -->
+            {{ $s = replaceRE "</?p[^>]*>" "" .Content 1 }}
+        {{ end }}
+    {{ $contact = printf "<span id='terminal'>%s</span>" $s | safeHTML}}
+    {{ else }}
+    {{ $limit := sub (len (findRE "\n" .Site.Params.Terminal.contact)) 1 }}
+    {{ $contact = printf "<span id='terminal'>%s</span>" .Site.Params.Terminal.contact }}
+    {{ $contact = replaceRE "\n" "<br>" $contact $limit| safeHTML }}
     {{ end }}
 
     {{ $end := $env }}
 
-    {{ $payload := delimit (slice $cd $cat $description $tree $leaf $end) "" }}
+    {{ $payload := delimit (slice $cd $cat $description $tree $leaf $contact $end) "" }}
 
     {{ $ps1Delay := $.Site.Params.Terminal.ps1Delay }}
     {{ $stdoutDelay :=  $.Site.Params.Terminal.stdoutDelay }}
     {{ $commandDelay := $.Site.Params.Terminal.commandDelay }}
 
-    {{ partial "partials/typeIndex.html" (dict "context" . "env" $env "cd" $cd "envWithDir" $envWithDir "cat" $cat "description" $description "tree" $tree "leaf" $leaf "ps1delay" $ps1Delay "stdoutdelay" $stdoutDelay "commanddelay" $commandDelay ) }}
+    {{ partial "partials/typeIndex.html" (dict "context" . "env" $env "cd" $cd "envWithDir" $envWithDir "cat" $cat "description" $description "tree" $tree "leaf" $leaf "cat2" $cat2 "contact" $contact "ps1delay" $ps1Delay "stdoutdelay" $stdoutDelay "commanddelay" $commandDelay ) }}
 
 {{ end }}

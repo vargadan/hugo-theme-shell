@@ -1,5 +1,5 @@
-baseURL = "https://www.example.com/"
-title = "Shell"
+baseURL = "http://varga.software/"
+title = "Varga.Software"
 # author = "Yukuro"
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
@@ -23,7 +23,7 @@ ignoreErrors = ["error-remote-getjson"]
   # Note: You can choose between
   # Note: hugo-theme-shell original: ["shell-powershell", "shell-ubuntu", "shell-retro"]
   # Note: gogh theme: https://mayccoll.github.io/Gogh/
-  scheme = "Molokai"
+  scheme = "Dracula"
 
   # Note: in terminal
   # [userName]@[pcName]:~/$ cd [workDir]
@@ -36,10 +36,11 @@ ignoreErrors = ["error-remote-getjson"]
   # ./[folderName]/
   # ...
   # Note: result of the tree command
-  userName = "jane"
-  pcName = "laptop"
-  workDir = "mydir"
+  userName = "daniel"
+  pcName = "varga.software"
+  workDir = "home"
   profile = "profile.txt"
+  contactFile = "contact.txt"
 
   # Note: speed at which text is displayed on the terminal
   # Note: if set to 0, typing animation will be disabled
@@ -47,8 +48,8 @@ ignoreErrors = ["error-remote-getjson"]
   # Note: if you want to enable Mathjax, you need to set it to 0
   # Note: and set "math: true" at front matter in your Markdown file
   ps1Delay = 0 # prompt speed : [userName]@[pcName]:~/$ , [userName]@[pcName]:~/[workDir]$
-  stdoutDelay = 0 # stdout speed : [description] , files in Params.Tree
-  commandDelay = 50 # command speed : cd [workDir] , cat [profile] , tree ./[folderName]/
+  stdoutDelay = 0 # stdout speed : [description] , files in Params.Tree, [contact]
+  commandDelay = 50 # command speed : cd [workDir] , cat [profile] , tree ./[folderName]/, cat [contactFile]
 
   # terminalDelay = 20 : deprecated
 
@@ -63,25 +64,31 @@ ignoreErrors = ["error-remote-getjson"]
   # activityDelay = 5 : deprecated
 
   description = """
-  Hi I am Jane Doe!
-  Nice to meet you!
-  
+  Hi, I am Daniel Varga an expert in software 
+  development and security.
+
   """
 
   # Note: If you want to use a Markdown file, you can use the following
   # description = "/description.md"
   # Note: and put the description.md in /content/description.md
 
+  contact = """
+  You can contact me on hello@varga.software or +41788701082
+
+  """
+
   [Params.Tree]
   use = true
-  folderName = "my_activity"
+  folderName = "specialities"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
-    ["C/C++", "https://www.example.com/"],
-    ["Python", "https://www.example.com/"],
-    ["Go", "https://golang.org/"],
-    ["Hugo", "/post/some-activity.md"],
-    ["Docker", "/post/some-activity.md"],
+    ["Code Security Review", ""],
+    ["Secure Coding Trainging", ""],
+    ["Azure Cloud Configuration Security Review", ""],
+    ["Kubernetes Configuration Security Review", ""],
+    ["Application Penetration Testing", ""],
+    ["Infrastucture Penetration Testing", ""],
   ]
 
 [module]

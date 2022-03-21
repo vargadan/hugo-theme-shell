@@ -2,8 +2,9 @@
 <span id="ps1_02"></span> <span id="cat"></span> <br>
 <span id="std_out_01"></span> <br>
 <span id="ps1_03"></span> <span id="tree"></span> <br>
-<span id="std_out_02"></span> <br>
-<span id="ps1_04"></span>
+<span id="std_out_02"></span> <br><br>
+<span id="ps1_04"></span> <span id="cat2"></span> <br>
+<span id="std_out_03"></span>
 
 <script type="text/javascript">
     async function typewriter(text, elementId, waitAfter) {
@@ -58,7 +59,8 @@
         await typewriter("{{ .description }}", "std_out_01", stdoutDelay);
         await typewriter("{{ .envWithDir }}", "ps1_03", ps1Delay); await typewriter("{{ .tree }}", "tree", commandDelay);
         await typewriter("{{ .leaf }}", "std_out_02", stdoutDelay);
-        await typewriter("{{ .envWithDir }}", "ps1_04", ps1Delay);
+        await typewriter("{{ .envWithDir }}", "ps1_04", ps1Delay); await typewriter("{{ .cat2 }}", "cat2", commandDelay);
+        await typewriter("{{ .contact }}", "std_out_03", stdoutDelay);
         return;
     }
 
