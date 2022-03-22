@@ -36,7 +36,7 @@ ignoreErrors = ["error-remote-getjson"]
   # ./[folderName]/
   # ...
   # Note: result of the tree command
-  userName = "daniel"
+  userName = "root"
   pcName = "varga.software"
   workDir = "home"
   profile = "profile.txt"
@@ -64,9 +64,11 @@ ignoreErrors = ["error-remote-getjson"]
   # activityDelay = 5 : deprecated
 
   description = """
-  Hi, I am Daniel Varga an expert in software 
-  development and security.
-
+  Daniel Varga
+  MSc Software and Systems Security, University of Oxford
+  +20 years of experience in IT systems arhitecting,
+  design and implementation
+  
   """
 
   # Note: If you want to use a Markdown file, you can use the following
@@ -74,8 +76,8 @@ ignoreErrors = ["error-remote-getjson"]
   # Note: and put the description.md in /content/description.md
 
   contact = """
-  You can contact me on hello@varga.software or +41788701082
-
+  +41 78 870 1082
+  root@varga.software     
   """
 
   [Params.Tree]
