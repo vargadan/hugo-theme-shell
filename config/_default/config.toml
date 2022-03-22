@@ -83,10 +83,10 @@ ignoreErrors = ["error-remote-getjson"]
   folderName = "specialities"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
-    ["Code Security Review", ""],
+    ["Code Security Verification", ""],
     ["Secure Coding Trainging", ""],
-    ["Azure Cloud Configuration Security Review", ""],
-    ["Kubernetes Configuration Security Review", ""],
+    ["Azure Cloud Configuration Security Verification", ""],
+    ["Kubernetes Configuration Security Verification", ""],
     ["Application Penetration Testing", ""],
     ["Infrastucture Penetration Testing", ""],
   ]
