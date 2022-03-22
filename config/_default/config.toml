@@ -41,6 +41,7 @@ ignoreErrors = ["error-remote-getjson"]
   workDir = "home"
   profile = "profile.txt"
   contactFile = "contact.txt"
+  educationFile = "education.txt"
 
   # Note: speed at which text is displayed on the terminal
   # Note: if set to 0, typing animation will be disabled
@@ -49,7 +50,7 @@ ignoreErrors = ["error-remote-getjson"]
   # Note: and set "math: true" at front matter in your Markdown file
   ps1Delay = 0 # prompt speed : [userName]@[pcName]:~/$ , [userName]@[pcName]:~/[workDir]$
   stdoutDelay = 0 # stdout speed : [description] , files in Params.Tree, [contact]
-  commandDelay = 50 # command speed : cd [workDir] , cat [profile] , tree ./[folderName]/, cat [contactFile]
+  commandDelay = 50 # command speed : cd [workDir] , cat [profile] , cat [educationFile], tree ./[folderName]/, cat [contactFile]
 
   # terminalDelay = 20 : deprecated
 
@@ -65,9 +66,15 @@ ignoreErrors = ["error-remote-getjson"]
 
   description = """
   Daniel Varga
-  MSc Software and Systems Security, University of Oxford
-  +20 years of experience in IT systems arhitecting,
-  design and implementation
+  Software Security Expert 
+  with extensive development experience
+
+  """
+
+  education = """
+  MSc Software and Systems Security
+  with GCHQ Certification
+  University of Oxford
   
   """
 
@@ -78,19 +85,20 @@ ignoreErrors = ["error-remote-getjson"]
   contact = """
   +41 78 870 1082
   root@varga.software     
+
   """
 
   [Params.Tree]
   use = true
-  folderName = "specialities"
+  folderName = "services"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
     ["Code Security Verification", ""],
     ["Secure Coding Trainging", ""],
-    ["Azure Cloud Configuration Security Verification", ""],
-    ["Kubernetes Configuration Security Verification", ""],
     ["Application Penetration Testing", ""],
     ["Infrastucture Penetration Testing", ""],
+    ["Azure Cloud Configuration Security Verification", ""],
+    ["Kubernetes Configuration Security Verification", ""],
   ]
 
 [module]
